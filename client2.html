@@ -1,0 +1,22 @@
+<html>
+<meta http-equiv="content-script-type" content="text/javascript">
+<head>
+<script src="http://localhost:8000/webrtc.io.js" type='text/javascript' ></script>
+<script>
+
+rtc.connect('ws://127.0.0.1:8000');
+rtc.createStream({"video":true,"audio":false},function(stream){
+    rtc.attachStream(stream,'local');
+    });
+
+rtc.on('add remote stream',function(stream){
+    rtc.attachStream(stream,'remote');
+    });
+
+</script>
+</head>
+<body>
+<video id='local' autoplay='autoplay'></video>
+<video id='remote' autoplay='autoplay'></video>
+</body>
+</html>
