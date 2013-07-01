@@ -7,7 +7,8 @@ window.onload = function(){
     var name = document.getElementById('name');
     socket.on('message',function(data){
         if(data.message){
-            messages.push(data.message);
+            messages.push(data);
+            console.log(messages);
             var html = '';
             for(var i=0; i<messages.length; i++){
             if(messages[i].username)

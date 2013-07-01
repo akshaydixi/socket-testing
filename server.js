@@ -18,7 +18,7 @@ console.log("[+] Listening on port " + port);
 io.sockets.on('connection',function(socket){
     socket.emit('message',{message: 'Welcome!' });
     socket.on('send',function(data){
-        socket.emit('message',data);
+        io.sockets.emit('message',data);
     });
 });
 
