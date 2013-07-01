@@ -4,13 +4,15 @@ window.onload = function(){
     var field = document.getElementById('field');
     var sendButton = document.getElementById('send');
     var content = document.getElementById('content');
-
+    var name = document.getElementById('name');
     socket.on('message',function(data){
         if(data.message){
             messages.push(data.message);
             var html = '';
             for(var i=0; i<messages.length; i++){
-                html+= messages[i] + '<br />';
+            if(messages[i].username)
+                html+='<b>' + messages[i].username + '</b>: ' + messages[i].message + '<br />';
+            else html+=messages[i].message + '<br />';    
                 }
             content.innerHTML = html;
         }
@@ -21,6 +23,6 @@ window.onload = function(){
 
     sendButton.onclick = function(){
         var text = field.value;
-        socket.emit('send', {message:text});
-    });
+        socket.emit('send', {message:text , username:name.value});
+    };
 }
