@@ -1,0 +1,12 @@
+{
+   "name" : "socket-testing",
+   "version" : "0.0.0",
+   "description" : "Lets see what this evolves into",
+   "dependencies" : {
+        "socket.io" : "latest",
+        "express"   : "latest",
+        "jade"      : "latest"
+        },
+    "author" : "akshaydixi"
+}
+

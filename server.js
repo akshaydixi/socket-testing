@@ -1,7 +1,10 @@
-var io = require('socket.io').listen(8000);
-io.sockets.on('connection',function(socket){
-    socket.emit('news',{hello:'world'});
-    socket.on('event',function(data){
-        console.log(data);
-        });
-});
+var express = require('express');
+var app = express();
+var port = 8000;
+
+app.get('/', function(req,res){
+    res.send("It works!");
+    });
+
+app.listen(port);
+console.log("[+] Listening on port " + port);
